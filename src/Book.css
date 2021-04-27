@@ -1,0 +1,18 @@
+.book {
+    padding: 1rem;
+    box-shadow: 1px 1px 5px grey;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:  
+        'judul tombol'
+        'pengarang tombol'
+    ;
+}
+
+.book > a {
+   grid-area: tombol; 
+   text-decoration: none;
+   height: 100%;
+}
