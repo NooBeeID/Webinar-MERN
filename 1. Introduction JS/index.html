@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="root" id="root"></div>
+
+    <br/>
+    <br/>
+    <br/>
+
+    <div id="todo">
+        <input type="text" id="todoInput" placeholder="Todo ...">
+        <button id="todoBtn">+</button>
+
+        <ul id="list">
+            <li>Ngoding</li>
+        </ul>
+    </div>
+
+    <script>
+        const root = document.getElementById("root");
+
+        const input = document.createElement("input");
+        input.setAttribute("type", "text");
+        const br = document.createElement("br");
+
+        const select = document.createElement("select");
+        const option = document.createElement("option");
+        const option2 = document.createElement("option");
+        const option3 = document.createElement("option");
+        option.innerHTML = "Text";
+        option.setAttribute("value", "text");
+        
+        option2.innerHTML = "Checkbox";
+        option2.setAttribute("value", "checkbox");
+
+        option3.innerHTML = "Radio";
+        option3.setAttribute("value", "radio");
+
+        select.appendChild(option);
+        select.appendChild(option2);
+        select.appendChild(option3);
+
+        root.appendChild(select)
+        root.appendChild(br)
+        root.appendChild(input)
+
+        select.addEventListener("change", function(e){
+            switch(e.target.value){
+                case "checkbox":
+                    createCheckbox(input, root)
+                    break;
+                case "text" :
+                    createText(input)
+                    break;
+                case "radio" :
+                    createRadio(input, root)
+                    break;
+            }
+        })
+
+        function createText(input){
+            input.setAttribute("type", "text")
+        }
+
+        function createCheckbox(input, root){
+
+            const label = document.createElement("label")
+            input.setAttribute("type", "checkbox")
+            label.innerHTML = "Check 1";
+
+        }
+
+        function createRadio(input, root){
+
+            const label = document.createElement("label")
+            input.setAttribute("type", "radio")
+            label.innerHTML = "Check 1";
+
+        }
+        
+        const btn = document.getElementById("todoBtn");
+        const todoInput = document.getElementById("todoInput");
+
+        let data = "";
+        todoInput.addEventListener("change", function(e){
+            data = e.target.value;
+            addTodo(data);
+            data = "";
+            todoInput.value = data;
+        })
+
+        function addTodo(text){
+            const ul = document.getElementById("list");
+            const li = document.createElement("li");
+            li.innerHTML = text;
+
+            ul.appendChild(li);
+        }
+
+    </script>
+    
+</body>
+</html>
