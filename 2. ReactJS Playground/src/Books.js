@@ -1,6 +1,5 @@
-import './Books.css';
 import { Component } from "react";
-import axios from 'axios';
+import agent, { CancelToken } from './utils/agent';
 
 import Book from './Book';
 
@@ -9,8 +8,8 @@ class Books extends Component {
         books: [],
     }
     componentDidMount() {
-        this.source = axios.CancelToken.source();
-        axios.get('https://crudcrud.com/api/69283d16b0d24823b0ee6bf9a38a4c53/buku', {
+        this.source = CancelToken.source();
+        agent.get('/buku', {
             cancelToken: this.source.token,
         })
             .then(({ data }) => {
@@ -23,6 +22,9 @@ class Books extends Component {
     render() {
         return (
             <div className="books">
+                {this.state.books.length === 0 && (
+                    <h3>Katalog buku kosong</h3>
+                )}
                 {this.state.books.map(book => (
                     <Book
                         key={book._id}

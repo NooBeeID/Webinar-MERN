@@ -45,7 +45,7 @@ body {
     display: block;
 }
 
-.form-control > input {
+.form-control > input, select, textarea {
     padding: .5rem;
     border-radius: 10px;
     border: 1px solid grey;
@@ -76,6 +76,15 @@ body {
     gap: .8rem;
 }
 
+.books > h3 {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .book {
     padding: 1rem;
     box-shadow: 1px 1px 5px grey;
@@ -93,4 +102,31 @@ body {
    grid-area: tombol; 
    text-decoration: none;
    height: 100%;
+}
+
+.form-control._title {
+    border-bottom: 3px solid black;
+}
+.form-control._title > label, .form-control._description > label { display: none; }
+.form-control._description > textarea {
+    width: 100%;
+}
+.form-control._title > input {
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+.split-input {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr auto;
+    margin-top: 1rem;
+}
+
+.box {
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding: 10px;
 }

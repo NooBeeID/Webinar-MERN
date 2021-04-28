@@ -16,6 +16,7 @@ class App extends Component {
             <Route exact path="/">
               <Link to="/add-book" className="btn">Tambah Buku</Link>
               <br />
+              <hr />
               <Books />
             </Route>
             <Route exact path="/add-book">
