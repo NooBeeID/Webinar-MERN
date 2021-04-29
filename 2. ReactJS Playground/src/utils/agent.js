@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default axios.create({
-    baseURL: 'https://crudcrud.com/api/69283d16b0d24823b0ee6bf9a38a4c53'
+    baseURL: 'https://crudcrud.com/api/d77afb8941b44c63bce63a16dfb8a98d'
 });
 
 export const CancelToken = axios.CancelToken;

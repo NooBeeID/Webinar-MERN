@@ -1,13 +1,18 @@
 import { Component } from "react";
-import axios from 'axios';
+import { withRouter } from 'react-router-dom'
+import agent from './utils/agent';
 
 class AddBook extends Component {
     onSubmit = (evt) => {
         evt.preventDefault();
-        const { judul, pengarang } = evt.target.elements;
-        axios.post('https://crudcrud.com/api/69283d16b0d24823b0ee6bf9a38a4c53/buku/', {
+        const { judul, pengarang, deskripsi, tahun_terbit } = evt.target.elements;
+        agent.post('/buku/', {
             judul: judul.value,
             pengarang: pengarang.value,
+            deskripsi: deskripsi.value,
+            tahun_terbit: tahun_terbit.value,
+        }).then(() => {
+            this.props.history.push('/');
         });
     }
     render() {
@@ -50,4 +55,4 @@ class AddBook extends Component {
     }
 }
 
-export default AddBook;
+export default withRouter(AddBook);
